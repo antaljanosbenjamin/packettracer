@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="packettracer" nsURI="http://mit.bme.hu/mdsd/packettracer" nsPrefix="packettracer">
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkNode" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="networkinterface" lowerBound="1"
+        upperBound="-1" eType="#//NetworkInterface" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkInterface">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1"
+        upperBound="-1" eType="#//Connector" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="subnetwork" eType="#//Subnetwork"
+        derived="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Endpoint" eSuperTypes="#//NetworkNode">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Subnetwork">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkPrefix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkPrefixLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkDevice" eSuperTypes="#//NetworkNode">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controls" lowerBound="1"
+        eType="#//Subnetwork" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ConnectorType">
+    <eLiterals name="RJ45"/>
+    <eLiterals name="WIFI2_4G" value="1" literal="WIFI2_4G"/>
+    <eLiterals name="WIFI5G" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connector">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConnectorType"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="uploadSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="downloadSpeed" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Connection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConnectorType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connects" lowerBound="2"
+        upperBound="2" eType="#//Connector"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="capacity" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+        defaultValueLiteral=""/>
+  </eClassifiers>
+</ecore:EPackage>
