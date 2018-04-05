@@ -10,11 +10,11 @@ A hálózatban háromféle entitás lehet jelen végpontok, hálózati eszközö
 
 A végpontoknak lesznek hálózati tulajdonságai, mint logikai cím(ek) és csatlakozok száma és típusai. A “számítógépek” két halmazra lehet bontani a kliensekre és a szerverekre. Ez a két halmaz közötti kommunikációt fogjuk becsülni. A forgalom összeköttetéseken és forgalom irányítókon folyik. Előbbinek áteresztő képessége és a csatlakozója a megadható jellemzője és mindig két eszköz között helyezkedik el. A hálózati eszközök adják a késleltetést a kapcsolatokhoz. Emellett meghatározható hány darab milyen csatlakozóval rendelkeznek, mekkora sávszélességet képesek kezelni és milyen logika címmel rendelkeznek.
 
-A hálózat definiálása két felületen történik. A grafikus felületet a topológiai elrendezést lehet megadni. Például hálózati eszközök, végpontok száma és a köztük található összeköttetések. Szöveges formában lehet megadni, hogy egy elemnek milyen tulajdonságai vannak.
+A hálózat definiálása két felületen történik. A grafikus felületet a topológiai elrendezést lehet megadni. Például hálózati eszközök, végpontok száma és a köztük található összeköttetések. Szöveges formában lehet megadni, az elemek tulajdonságainak értékeit.
 
 Mindkét módszerrel elkészült modellt validálhatjuk különböző jólformáltsági kényszerek és figyelmeztetések mentén:
 
---   Kényszerek:
+   Kényszerek:
     
 
 -   Minden végpont elérhető legalább egy másik végpontból, illetve minden hálózat eszköz elérhető legalább kettő végpontból.
@@ -28,7 +28,7 @@ Mindkét módszerrel elkészült modellt validálhatjuk különböző jólformá
 -   Az egy alhálózatba tartozó IP címek azonos címtartományban vannak.
     
 
---   Figyelmeztetés:
+   Figyelmeztetés:
     
 
 -   Két közvetlenül összekötött eszköz között nem a lehető leggyorsabb összeköttetés van.
