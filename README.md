@@ -16,6 +16,7 @@ Kényszerek:
 -   Minden végpont elérhető legalább egy másik végpontból, illetve minden hálózat eszköz elérhető legalább kettő végpontból.
 -   Az összeköttetés két végén azonos csatlakozó van.
 -   A késleltetés nem negatív, a sávszélesség pedig pozitív értékű.
+-   Az IP címek formátuma megfelelő, azaz X.X.X.X. formátumú, ahol X egy nem negatív, 256-nál kisebb egész szám.
 -   A modellben nincs két azonos IP című elem.
 -   Az egy alhálózatba tartozó IP címek azonos címtartományban vannak.
 
