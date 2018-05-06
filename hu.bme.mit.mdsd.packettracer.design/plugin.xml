@@ -7,4 +7,11 @@
 	       name="packettracer">
     </component>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface"
+           id="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface">
+     </javaActions>
+  </extension>
 </plugin>
