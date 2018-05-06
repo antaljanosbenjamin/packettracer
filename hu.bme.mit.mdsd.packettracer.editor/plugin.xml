@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated packettracer -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="packettracer.presentation.PackettracerModelWizardID"
+            name="%_UI_PackettracerModelWizard_label"
+            class="packettracer.presentation.PackettracerModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PackettracerModelFile.gif">
+         <description>%_UI_PackettracerModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated packettracer -->
+      <editor
+            id="packettracer.presentation.PackettracerEditorID"
+            name="%_UI_PackettracerEditor_label"
+            icon="icons/full/obj16/PackettracerModelFile.gif"
+            extensions="packettracer"
+            class="packettracer.presentation.PackettracerEditor"
+            contributorClass="packettracer.presentation.PackettracerActionBarContributor">
+      </editor>
+   </extension>
+</plugin>

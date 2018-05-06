@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/hu.bme.mit.mdsd.packettracer/src-gen/" editDirectory="/hu.bme.mit.mdsd.packettracer.edit/src-gen/"
+    editorDirectory="/hu.bme.mit.mdsd.packettracer.editor/src-gen/" modelPluginID="hu.bme.mit.mdsd.packettracer"
+    modelName="Packettracer" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    testsDirectory="/hu.bme.mit.mdsd.packettracer.tests/src-gen/" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="8.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
+  <foreignModel>packettracer.ecore</foreignModel>
+  <genPackages prefix="Packettracer" disposableProviderFactory="true" ecorePackage="packettracer.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="packettracer.ecore#//ConnectorType">
+      <genEnumLiterals ecoreEnumLiteral="packettracer.ecore#//ConnectorType/RJ45"/>
+      <genEnumLiterals ecoreEnumLiteral="packettracer.ecore#//ConnectorType/WIFI2_4G"/>
+      <genEnumLiterals ecoreEnumLiteral="packettracer.ecore#//ConnectorType/WIFI5G"/>
+      <genEnumLiterals ecoreEnumLiteral="packettracer.ecore#//ConnectorType/OPTICAL"/>
+    </genEnums>
+    <genClasses image="false" ecoreClass="packettracer.ecore#//NetworkNode">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//NetworkNode/networkinterface"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//NetworkInterface">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//NetworkInterface/connector"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//NetworkInterface/address"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//NetworkInterface/subnetwork"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//Endpoint">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Endpoint/name"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//Subnetwork">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Subnetwork/networkPrefix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Subnetwork/networkPrefixLength"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//NetworkDevice">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//NetworkDevice/controls"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//NetworkDevice/delay"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//Connector">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connector/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connector/bandwidth"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//Connection">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connection/type"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//Connection/connects"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connection/bandwidth"/>
+    </genClasses>
+    <genClasses ecoreClass="packettracer.ecore#//PacketTracerDiagram">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//PacketTracerDiagram/networkDevices"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//PacketTracerDiagram/connections"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//PacketTracerDiagram/endpoints"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//PacketTracerDiagram/subnetworks"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
