@@ -25,7 +25,6 @@
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
             </style>
           </borderedNodeMappings>
-          <borderedNodeMappings semanticCandidatesExpression="[oclAsType(NetworkNode).subnetwork/]"/>
           <conditionnalStyles predicateExpression="[oclIsKindOf(Endpoint)/]">
             <style xsi:type="style:WorkspaceImageDescription" labelSize="14" showIcon="false" labelExpression="[oclAsType(Endpoint).name/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/computer.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -41,6 +40,29 @@
             </style>
           </conditionnalStyles>
         </nodeMappings>
+        <nodeMappings name="Subnetwork" label="Subnetwork" semanticCandidatesExpression="feature:subnetworks" domainClass="Subnetwork">
+          <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="[networkPrefix.concat('/').concat(networkPrefixLength.toString())/]" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Controls" sourceMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']" targetMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Subnetwork']" targetFinderExpression="[oclAsType(NetworkDevice).controls/]">
+          <style sizeComputationExpression="5">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="Connection" semanticCandidatesExpression="feature:connections" sourceMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" targetMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" targetFinderExpression="[to/]" sourceFinderExpression="[from/]" domainClass="Connection" useDomainElement="true">
+          <style targetArrow="NoDecoration" sizeComputationExpression="3">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
+            <centerLabelStyleDescription>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="hu.bme.mit.mdsd.packettracer.design.Services"/>

@@ -35,11 +35,13 @@
     <genClasses ecoreClass="packettracer.ecore#//Connector">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connector/type"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connector/bandwidth"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//Connector/connection"/>
     </genClasses>
     <genClasses ecoreClass="packettracer.ecore#//Connection">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connection/type"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//Connection/connects"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Connection/bandwidth"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//Connection/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//Connection/to"/>
     </genClasses>
     <genClasses ecoreClass="packettracer.ecore#//PacketTracerDiagram">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference packettracer.ecore#//PacketTracerDiagram/networkDevices"/>

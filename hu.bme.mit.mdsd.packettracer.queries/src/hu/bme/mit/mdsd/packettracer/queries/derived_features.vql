@@ -7,15 +7,28 @@ pattern subnetworks(diagram: PacketTracerDiagram, subnetwork: Subnetwork) {
 	PacketTracerDiagram.networkDevices.controls(diagram, subnetwork);
 }
 
+pattern connected(connector: Connector, otherConnector: Connector) {
+	Connection.from(connection, connector);
+	Connection.to(connection, otherConnector);
+} or {
+	Connection.from(connection, otherConnector);
+	Connection.to(connection, connector);	
+}
+
 @QueryBasedFeature
 pattern subnetwork(interface: NetworkInterface, subnetwork: Subnetwork) {
 	Endpoint.networkinterface(_, interface);
 	NetworkInterface.connector(interface, connector);
-	Connection.connects(connection, connector);
-	Connection.connects(connection, otherConnector);
+	find connected( connector, otherConnector);
 	connector != otherConnector;
 	NetworkInterface.connector(otherInterface, otherConnector);
 	NetworkDevice.networkinterface(device, otherInterface);
 	NetworkDevice.controls(device, subnetwork);
-		
+}
+
+@QueryBasedFeature
+pattern connection(connector: Connector, connection: Connection){
+	Connection.from(connection, connector);
+} or {
+	Connection.to(connection, connector);
 }
