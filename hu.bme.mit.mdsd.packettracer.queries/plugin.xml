@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="extension.derived.hu.bme.mit.mdsd.packettracer.queries.subnetwork" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
+    <wellbehaving-derived-feature classifier-name="NetworkInterface" feature-name="subnetwork" package-nsUri="http://mit.bme.hu/mdsd/packettracer"/>
+  </extension>
+  <extension id="extension.derived.hu.bme.mit.mdsd.packettracer.queries.subnetworks" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
+    <wellbehaving-derived-feature classifier-name="PacketTracerDiagram" feature-name="subnetworks" package-nsUri="http://mit.bme.hu/mdsd/packettracer"/>
+  </extension>
+  <extension id="hu.bme.mit.mdsd.packettracer.queries.Derived_features" point="org.eclipse.viatra.query.runtime.queryspecification">
+    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.mdsd.packettracer.queries.Derived_features" id="hu.bme.mit.mdsd.packettracer.queries.Derived_features">
+      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.subnetworks"/>
+      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.subnetwork"/>
+    </group>
+  </extension>
+</plugin>

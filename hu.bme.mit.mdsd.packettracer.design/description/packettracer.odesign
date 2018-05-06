@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="packettracer" version="12.0.0.2017041100">
+  <ownedViewpoints name="PacketTracerDiagramSpecification" label="Packet Tracer Diagram Specification">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Packet Tracer Diagram Description" domainClass="PacketTracerDiagram" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="NetworkNode" label="Network Node" semanticCandidatesExpression="[endpoints->union(networkDevices)/]" domainClass="NetworkNode">
+          <borderedNodeMappings name="NetworkInterface" semanticCandidatesExpression="feature:networkinterface" domainClass="NetworkInterface">
+            <borderedNodeMappings name="Connector" semanticCandidatesExpression="feature:connector" domainClass="Connector">
+              <conditionnalStyles predicateExpression="[type=ConnectorType::RJ45/]">
+                <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/rj45.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI2_4G/]">
+                <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/wifi_2g.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+            </borderedNodeMappings>
+            <style xsi:type="style:SquareDescription" labelExpression="feature:address" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/ip_icon_64x64.png" sizeComputationExpression="8" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings semanticCandidatesExpression="[oclAsType(NetworkNode).subnetwork/]"/>
+          <conditionnalStyles predicateExpression="[oclIsKindOf(Endpoint)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="14" showIcon="false" labelExpression="[oclAsType(Endpoint).name/]" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/computer.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[oclIsKindOf(NetworkDevice)/]">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" showIcon="false" labelExpression="[oclAsType(NetworkDevice).controls.networkPrefix.concat('/').concat(oclAsType(NetworkDevice).controls.networkPrefixLength.toString())/]" labelAlignment="LEFT" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" roundedCorner="true" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/router.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
+        </nodeMappings>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="hu.bme.mit.mdsd.packettracer.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

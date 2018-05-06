@@ -1,0 +1,21 @@
+package hu.bme.mit.mdsd.packettracer.queries
+
+import "http://mit.bme.hu/mdsd/packettracer"
+
+@QueryBasedFeature
+pattern subnetworks(diagram: PacketTracerDiagram, subnetwork: Subnetwork) {
+	PacketTracerDiagram.networkDevices.controls(diagram, subnetwork);
+}
+
+@QueryBasedFeature
+pattern subnetwork(interface: NetworkInterface, subnetwork: Subnetwork) {
+	Endpoint.networkinterface(_, interface);
+	NetworkInterface.connector(interface, connector);
+	Connection.connects(connection, connector);
+	Connection.connects(connection, otherConnector);
+	connector != otherConnector;
+	NetworkInterface.connector(otherInterface, otherConnector);
+	NetworkDevice.networkinterface(device, otherInterface);
+	NetworkDevice.controls(device, subnetwork);
+		
+}
