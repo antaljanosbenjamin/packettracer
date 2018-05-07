@@ -5,11 +5,11 @@
     <details key="settingDelegates" value="org.eclipse.viatra.query.querybasedfeature"/>
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkNode" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="networkinterface" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="networkInterfaces" lowerBound="1"
         upperBound="-1" eType="#//NetworkInterface" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkInterface">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="connector" lowerBound="1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectors" lowerBound="1"
         upperBound="-1" eType="#//Connector" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="address" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
         defaultValueLiteral=""/>

@@ -10,7 +10,7 @@
       <!-- @generated packettracer -->
       <factory
             uri="http://mit.bme.hu/mdsd/packettracer"
-            class="packettracer.provider.PackettracerItemProviderAdapterFactory"
+            class="hu.bme.mit.mdsd.packettracer.provider.PackettracerItemProviderAdapterFactory"
             supportedTypes=
               "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
                org.eclipse.emf.edit.provider.IStructuredItemContentProvider

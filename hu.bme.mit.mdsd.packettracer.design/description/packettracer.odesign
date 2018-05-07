@@ -4,8 +4,8 @@
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Packet Tracer Diagram Description" domainClass="PacketTracerDiagram" enablePopupBars="true">
       <defaultLayer name="Default">
         <nodeMappings name="NetworkNode" label="Network Node" semanticCandidatesExpression="[endpoints->union(networkDevices)/]" domainClass="NetworkNode">
-          <borderedNodeMappings name="NetworkInterface" semanticCandidatesExpression="feature:networkinterface" domainClass="NetworkInterface">
-            <borderedNodeMappings name="Connector" semanticCandidatesExpression="feature:connector" domainClass="Connector">
+          <borderedNodeMappings name="NetworkInterface" semanticCandidatesExpression="feature:networkInterfaces" domainClass="NetworkInterface">
+            <borderedNodeMappings name="Connector" semanticCandidatesExpression="feature:connectors" domainClass="Connector">
               <conditionnalStyles predicateExpression="[type=ConnectorType::RJ45/]">
                 <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/rj45.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -14,6 +14,12 @@
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI2_4G/]">
                 <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/wifi_2g.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="[type=ConnectorType::OPTICAL/]">
+                <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/optical.png">
                   <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
@@ -63,20 +69,7 @@
           </style>
         </edgeMappings>
         <toolSections name="Add item" icon="/hu.bme.mit.mdsd.packettracer.design/resources/plus_sign.png">
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Endpoint" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/plus_sign.png">
-            <variable name="container"/>
-            <viewVariable name="containerView"/>
-            <initialOperation>
-              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
-                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Endpoint" referenceName="endpoints" variableName="newEndpoint">
-                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newEndpoint">
-                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="name"/>
-                  </subModelOperations>
-                </subModelOperations>
-              </firstModelOperations>
-            </initialOperation>
-          </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Network Device" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/plus_sign.png">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Network Device" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/device.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
@@ -94,7 +87,27 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Network Interface" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Endpoint" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/endpoint.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Endpoint" referenceName="endpoints" variableName="newEndpoint">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newEndpoint">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="name"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Connector" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/connector.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="hu.bme.mit.mdsd.packettracer.design.CreateConnector" icon="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/connector.png" id="hu.bme.mit.mdsd.packettracer.design.CreateConnector"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Network Interface" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/interface.png">
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>

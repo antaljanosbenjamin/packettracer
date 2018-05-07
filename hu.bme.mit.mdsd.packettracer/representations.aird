@@ -600,9 +600,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_CvoZoDsIEei4YtE6R_Y8bQ" name="[1..*] networkinterface" sourceNode="_CtrR0DsIEei4YtE6R_Y8bQ" targetNode="_Ct8XkDsIEei4YtE6R_Y8bQ">
-      <target xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkNode/networkinterface"/>
-      <semanticElements xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkNode/networkinterface"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_CvoZoDsIEei4YtE6R_Y8bQ" name="[1..*] networkInterfaces" sourceNode="_CtrR0DsIEei4YtE6R_Y8bQ" targetNode="_Ct8XkDsIEei4YtE6R_Y8bQ">
+      <target xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkNode/networkInterfaces"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkNode/networkInterfaces"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_CvzYwDsIEei4YtE6R_Y8bQ" description="_Cvt5MDsIEei4YtE6R_Y8bQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_CvzYwTsIEei4YtE6R_Y8bQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>
@@ -614,9 +614,9 @@
       </ownedStyle>
       <actualMapping xmi:type="description_1:EdgeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@edgeMappings[name='EC_EReference']"/>
     </ownedDiagramElements>
-    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Cv11ADsIEei4YtE6R_Y8bQ" name="[1..*] connector" sourceNode="_Ct8XkDsIEei4YtE6R_Y8bQ" targetNode="_CuOrcDsIEei4YtE6R_Y8bQ">
-      <target xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkInterface/connector"/>
-      <semanticElements xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkInterface/connector"/>
+    <ownedDiagramElements xmi:type="diagram:DEdge" xmi:id="_Cv11ADsIEei4YtE6R_Y8bQ" name="[1..*] connectors" sourceNode="_Ct8XkDsIEei4YtE6R_Y8bQ" targetNode="_CuOrcDsIEei4YtE6R_Y8bQ">
+      <target xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkInterface/connectors"/>
+      <semanticElements xmi:type="ecore:EReference" href="model/packettracer.ecore#//NetworkInterface/connectors"/>
       <ownedStyle xmi:type="diagram:EdgeStyle" xmi:id="_Cv3qMDsIEei4YtE6R_Y8bQ" description="_Cvt5MDsIEei4YtE6R_Y8bQ" sourceArrow="FillDiamond" routingStyle="manhattan" strokeColor="0,0,0">
         <centerLabelStyle xmi:type="diagram:CenterLabelStyle" xmi:id="_Cv3qMTsIEei4YtE6R_Y8bQ" showIcon="false">
           <customFeatures>labelSize</customFeatures>

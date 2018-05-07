@@ -6,11 +6,12 @@ import java.util.Map;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.tools.api.ui.IExternalJavaAction;
 
+import hu.bme.mit.mdsd.packettracer.Connector;
+import hu.bme.mit.mdsd.packettracer.ConnectorType;
 import hu.bme.mit.mdsd.packettracer.NetworkInterface;
-import hu.bme.mit.mdsd.packettracer.NetworkNode;
 import hu.bme.mit.mdsd.packettracer.PackettracerFactory;
 
-public class CreateNetworkInterface implements IExternalJavaAction {
+public class CreateConnector implements IExternalJavaAction {
 
 	@Override
 	public boolean canExecute(Collection<? extends EObject> selections) {
@@ -18,7 +19,7 @@ public class CreateNetworkInterface implements IExternalJavaAction {
 			return false;
 		}
 		EObject selectedItem = selections.iterator().next();
-		return NetworkNode.class.isInstance(selectedItem);
+		return NetworkInterface.class.isInstance(selectedItem);
 	}
 
 	@Override
@@ -27,14 +28,14 @@ public class CreateNetworkInterface implements IExternalJavaAction {
 			return;
 		}
 		EObject selectedItem = selections.iterator().next();
-		if (!NetworkNode.class.isInstance(selectedItem)) {
+		if (!NetworkInterface.class.isInstance(selectedItem)) {
 			return;
 		}
-		NetworkNode node = NetworkNode.class.cast(selectedItem);
+		NetworkInterface networkInterface = NetworkInterface.class.cast(selectedItem);
 		PackettracerFactory factory = PackettracerFactory.eINSTANCE;
-		NetworkInterface newInterface = factory.createNetworkInterface();
-		newInterface.setAddress("0.0.0.0");
-		node.getNetworkInterfaces().add(newInterface);
+		Connector newConnector = factory.createConnector();
+		newConnector.setType(ConnectorType.RJ45);
+		networkInterface.getConnectors().add(newConnector);
 	}
 
 }

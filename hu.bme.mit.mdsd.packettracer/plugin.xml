@@ -10,7 +10,7 @@
       <!-- @generated packettracer -->
       <package
             uri="http://mit.bme.hu/mdsd/packettracer"
-            class="packettracer.PackettracerPackage"
+            class="hu.bme.mit.mdsd.packettracer.PackettracerPackage"
             genModel="model/packettracer.genmodel"/>
    </extension>
 
