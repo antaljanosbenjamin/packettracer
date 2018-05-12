@@ -1,0 +1,59 @@
+package hu.bme.mit.mdsd.packettracer.queries
+
+import "http://mit.bme.hu/mdsd/packettracer"
+import java hu.bme.mit.mdsd.packettracer.queries.ErrorFunctions;
+
+pattern hasIPAddress(element, ipAddress : java ^java.lang.String) {
+	NetworkInterface.address(element, ipAddress);
+} or {
+	Subnetwork.networkPrefix(element, ipAddress);
+}
+
+@Constraint(key = {
+	element
+}, severity = "error", message = "Invalid IP address: $ipAddress$.", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID")
+pattern wrongIPAddressFormat(element, ipAddress : java ^java.lang.String) {
+	find hasIPAddress(element, ipAddress);
+	check(ErrorFunctions.isInvalidIPAddress(ipAddress));
+}
+
+@Constraint(key = {
+	networkDevice
+}, severity = "error", message = "$networkDevice$'s delay must be non negative!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID")
+pattern negativeDelay(networkDevice : NetworkDevice, delay : java
+^java.lang.Integer) {
+	NetworkDevice.delay(networkDevice, delay);
+	check(delay < 0);
+}
+
+@Constraint(key = {
+	element
+}, severity = "error", message = "$element$'s bandwidth must be greater than 0!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID")
+pattern nonPositiveBandwith(element, bandwith : java ^java.lang.Integer) {
+	Connector.bandwidth(element, bandwith);
+	check(bandwith <= 0);
+} or {
+	Connection.bandwidth(element, bandwith);
+	check(bandwith <= 0);
+}
+
+@Constraint(key = {
+	element
+}, severity = "error", message = "$element$'s bandwidth must be greater than 0!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID")
+pattern nonPositiveBandwith(element, bandwith : java ^java.lang.Integer) {
+	Connector.bandwidth(element, bandwith);
+	check(bandwith <= 0);
+} or {
+	Connection.bandwidth(element, bandwith);
+	check(bandwith <= 0);
+}
+
+@Constraint(key = {
+	ni1, ni2
+}, severity = "error", message = "Two network interfaces have the same ip address $ipAddress$!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID")
+pattern
+sameIPAddress(ni1 : NetworkInterface, ni2 : NetworkInterface, ipAddress : java
+^java.lang.String) {
+	NetworkInterface.address(ni1, ipAddress);
+	NetworkInterface.address(ni2, ipAddress);
+} 

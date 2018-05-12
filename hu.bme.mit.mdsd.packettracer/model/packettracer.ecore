@@ -29,10 +29,15 @@
         defaultValueLiteral=""/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="networkPrefixLength" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" eType="#//NetworkDevice"
+        changeable="false" volatile="true" transient="true" derived="true">
+      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
+        <details key="patternFQN" value="hu.bme.mit.mdsd.packettracer.queries.controller"/>
+      </eAnnotations>
+    </eStructuralFeatures>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkDevice" eSuperTypes="#//NetworkNode">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="controls" lowerBound="1"
-        eType="#//Subnetwork" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controls" eType="#//Subnetwork"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="delay" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
         defaultValueLiteral="0"/>
   </eClassifiers>
@@ -69,11 +74,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="endpoints" lowerBound="2"
         upperBound="-1" eType="#//Endpoint" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="subnetworks" lowerBound="1"
-        upperBound="-1" eType="#//Subnetwork" changeable="false" volatile="true" transient="true"
-        derived="true">
-      <eAnnotations source="org.eclipse.viatra.query.querybasedfeature">
-        <details key="patternFQN" value="hu.bme.mit.mdsd.packettracer.queries.subnetworks"/>
-      </eAnnotations>
-    </eStructuralFeatures>
+        upperBound="-1" eType="#//Subnetwork" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

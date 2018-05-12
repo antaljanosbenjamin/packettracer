@@ -2,25 +2,32 @@
 <description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="packettracer" version="12.0.0.2017041100">
   <ownedViewpoints name="PacketTracerDiagramSpecification" label="Packet Tracer Diagram Specification">
     <ownedRepresentations xsi:type="description_1:DiagramDescription" name="Packet Tracer Diagram Description" domainClass="PacketTracerDiagram" enablePopupBars="true">
+      <metamodel href="http://mit.bme.hu/mdsd/packettracer#/"/>
       <defaultLayer name="Default">
         <nodeMappings name="NetworkNode" label="Network Node" semanticCandidatesExpression="[endpoints->union(networkDevices)/]" domainClass="NetworkNode">
           <borderedNodeMappings name="NetworkInterface" semanticCandidatesExpression="feature:networkInterfaces" domainClass="NetworkInterface">
             <borderedNodeMappings name="Connector" semanticCandidatesExpression="feature:connectors" domainClass="Connector">
               <conditionnalStyles predicateExpression="[type=ConnectorType::RJ45/]">
                 <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/rj45.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI2_4G/]">
                 <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/wifi_2g.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_blue']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                </style>
+              </conditionnalStyles>
+              <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI5G/]">
+                <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/wifi_5g.png">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
               <conditionnalStyles predicateExpression="[type=ConnectorType::OPTICAL/]">
                 <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[''/]" sizeComputationExpression="4" labelPosition="node" resizeKind="NSEW" arcWidth="5" arcHeight="5" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/optical.png">
-                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
                   <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
                 </style>
               </conditionnalStyles>
@@ -61,12 +68,40 @@
           </style>
         </edgeMappings>
         <edgeMappings name="Connection" semanticCandidatesExpression="feature:connections" sourceMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" targetMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" targetFinderExpression="[to/]" sourceFinderExpression="[from/]" domainClass="Connection" useDomainElement="true">
-          <style targetArrow="NoDecoration" sizeComputationExpression="3">
+          <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
-            <centerLabelStyleDescription>
-              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             </centerLabelStyleDescription>
           </style>
+          <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI2_4G/]">
+            <style targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI5G/]">
+            <style targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[type=ConnectorType::OPTICAL/]">
+            <style targetArrow="NoDecoration" sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+              <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+                <labelFormat>bold</labelFormat>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
         </edgeMappings>
         <toolSections name="Add item" icon="/hu.bme.mit.mdsd.packettracer.design/resources/plus_sign.png">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="New Network Device" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/device.png">
@@ -74,14 +109,15 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Subnetwork" referenceName="subnetworks" variableName="newSubnetwork">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSubnetwork">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="networkPrefix" valueExpression="0.0.0.0"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="networkPrefixLength" valueExpression="0"/>
+                  </subModelOperations>
+                </subModelOperations>
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="NetworkDevice" referenceName="networkDevices" variableName="newNetworkDevice">
                   <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newNetworkDevice">
-                    <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Subnetwork" referenceName="controls" variableName="newSubnetwork">
-                      <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSubnetwork">
-                        <subModelOperations xsi:type="tool_1:SetValue" featureName="networkPrefix" valueExpression="0.0.0.0"/>
-                        <subModelOperations xsi:type="tool_1:SetValue" featureName="networkPrefixLength" valueExpression="0"/>
-                      </subModelOperations>
-                    </subModelOperations>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="controls" valueExpression="var:newSubnetwork"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
@@ -112,6 +148,49 @@
             <viewVariable name="containerView"/>
             <initialOperation>
               <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface" id="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="New Subnetwork" nodeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='Subnetwork']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/subnetwork.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:container">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="Subnetwork" referenceName="subnetworks" variableName="newSubnetwork">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:newSubnetwork">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="networkPrefix" valueExpression="0.0.0.0"/>
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="networkPrefixLength" valueExpression="0"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Add Connection">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connect devices" precondition="[preTarget.connection.oclIsUndefined() and preSource.type=preTarget.type/]" edgeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Connection']" connectionStartPrecondition="[preSource.connection.oclIsUndefined()/]">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ExternalJavaAction" name="hu.bme.mit.mdsd.packettracer.design.CreateConnection" id="hu.bme.mit.mdsd.packettracer.design.CreateConnection">
+                <parameters name="source" value="var:source"/>
+                <parameters name="target" value="var:target"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign subnetwork" precondition="[preTarget.controller.oclIsUndefined()/]" edgeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Controls']" connectionStartPrecondition="[preSource.oclIsKindOf(NetworkDevice) and preSource.oclAsType(NetworkDevice).controls.oclIsUndefined()/]">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:source">
+                <subModelOperations xsi:type="tool_1:Let" variableName="networkDevice" valueExpression="[source.oclAsType(NetworkDevice)/]">
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:networkDevice">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="controls" valueExpression="var:target"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
             </initialOperation>
           </ownedTools>
         </toolSections>

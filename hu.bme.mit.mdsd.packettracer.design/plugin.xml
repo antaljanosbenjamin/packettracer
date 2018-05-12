@@ -21,4 +21,11 @@
            id="hu.bme.mit.mdsd.packettracer.design.CreateConnector">
      </javaActions>
   </extension>
+  <extension
+        point="org.eclipse.sirius.externalJavaAction">
+     <javaActions
+           actionClass="hu.bme.mit.mdsd.packettracer.design.CreateConnection"
+           id="hu.bme.mit.mdsd.packettracer.design.CreateConnection">
+     </javaActions>
+  </extension>
 </plugin>
