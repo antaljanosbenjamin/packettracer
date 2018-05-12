@@ -18,6 +18,26 @@ connectedWithConenction(connection : Connection, connector : Connector, otherCon
 	Connection.to(connection, connector);
 }
 
+pattern connectedDirectly(i1 : NetworkInterface, i2 : NetworkInterface){
+	NetworkInterface.connectors(i1, c1);
+	NetworkInterface.connectors(i2, c2);
+	find connected(c1, c2);
+} or {
+	NetworkDevice.networkInterfaces(device, i1);
+	NetworkDevice.networkInterfaces(device, i2);
+}
+
+pattern connectedInterfaces(i1 : NetworkInterface, i2 : NetworkInterface){
+	find connectedDirectly+(i1, i2);
+}
+
+pattern connectedEndpoints(e1: Endpoint, e2: Endpoint){
+	Endpoint.networkInterfaces(e1,i1);
+	Endpoint.networkInterfaces(e2, i2);
+	e1 != e2;
+	find connectedDirectly+(i1, i2);
+}
+
 @Constraint(key = {
 	element
 }, severity = "error", message = "Invalid IP address: $ipAddress$.", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
@@ -86,12 +106,22 @@ pattern multipleConnectorIsConnected(networkInterface : NetworkInterface) {
 @Constraint(key = {
 	networkInterface
 }, severity = "error", message = "The $networkInterface$($networkInterface.address$) IP address is not in the corresponding subnetwork! $subnetwork.networkPrefix$/$subnetwork.networkPrefixLength$!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
-pattern ipAddressIsOutOfSubnetwork(networkInterface : NetworkInterface, subnetwork: Subnetwork) {
+pattern
+ipAddressIsOutOfSubnetwork(networkInterface : NetworkInterface, subnetwork : Subnetwork) {
 	Subnetwork.networkPrefix(subnetwork, subnetIP);
 	Subnetwork.networkPrefixLength(subnetwork, maskLength);
 	find subnetwork(networkInterface, subnetwork);
 	NetworkInterface.address(networkInterface, ipAddress);
-	check(!ErrorFunctions.isInSubnet(subnetIP, maskLength, ipAddress));
+	check(! ErrorFunctions.isInSubnet(subnetIP, maskLength, ipAddress));
 }
+
+@Constraint(key = {
+	endpoint
+}, severity = "error", message = "The $endpoint$ doesn't connected to any other endpoint!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
+pattern notReachableEndpoint(endpoint: Endpoint){
+	Endpoint(endpoint);
+	neg find connectedEndpoints(endpoint, _);
+}
+
 
 
