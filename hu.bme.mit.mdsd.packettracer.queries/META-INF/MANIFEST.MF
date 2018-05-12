@@ -3,6 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: hu.bme.mit.mdsd.packettracer.queries
 Bundle-SymbolicName: hu.bme.mit.mdsd.packettracer.queries;singleton:=true
 Bundle-Version: 0.0.1.qualifier
+Bundle-ClassPath: dependencies/commons-net-3.6/commons-net-3.6.jar,
+  .
 Export-Package: hu.bme.mit.mdsd.packettracer.queries,
   hu.bme.mit.mdsd.packettracer.queries.util
 Require-Bundle: org.eclipse.viatra.addon.querybasedfeatures.runtime,

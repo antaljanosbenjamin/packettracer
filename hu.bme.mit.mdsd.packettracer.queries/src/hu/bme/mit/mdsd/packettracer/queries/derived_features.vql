@@ -19,6 +19,9 @@ pattern subnetwork(interface : NetworkInterface, subnetwork : Subnetwork) {
 	NetworkInterface.connectors(otherInterface, otherConnector);
 	NetworkDevice.networkInterfaces(device, otherInterface);
 	NetworkDevice.controls(device, subnetwork);
+} or {
+	NetworkDevice.networkInterfaces(networkDevice, interface);
+	NetworkDevice.controls(networkDevice, subnetwork);
 }
 
 @QueryBasedFeature
