@@ -22,11 +22,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GridDsl.ecore#//NetworkDevice/networkInterfaces"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference GridDsl.ecore#//NetworkDevice/controls"/>
     </genClasses>
-    <genClasses ecoreClass="GridDsl.ecore#//Connection">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GridDsl.ecore#//Connection/type"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GridDsl.ecore#//Connection/bandwidth"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GridDsl.ecore#//Connection/from"/>
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GridDsl.ecore#//Connection/to"/>
+    <genClasses ecoreClass="GridDsl.ecore#//Connecton">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GridDsl.ecore#//Connecton/type"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GridDsl.ecore#//Connecton/bandwidth"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GridDsl.ecore#//Connecton/from"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference GridDsl.ecore#//Connecton/to"/>
     </genClasses>
     <genClasses ecoreClass="GridDsl.ecore#//Endpoint">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute GridDsl.ecore#//Endpoint/name"/>
