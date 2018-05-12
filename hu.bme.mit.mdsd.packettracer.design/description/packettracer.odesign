@@ -70,7 +70,7 @@
         <edgeMappings name="Connection" semanticCandidatesExpression="feature:connections" sourceMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" targetMapping="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@nodeMappings[name='NetworkNode']/@borderedNodeMappings[name='NetworkInterface']/@borderedNodeMappings[name='Connector']" targetFinderExpression="[to/]" sourceFinderExpression="[from/]" domainClass="Connection" useDomainElement="true">
           <style targetArrow="NoDecoration" sizeComputationExpression="2">
             <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
-            <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+            <centerLabelStyleDescription showIcon="false" labelExpression="service:getBandwithLabel()">
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_orange']"/>
             </centerLabelStyleDescription>
@@ -78,7 +78,7 @@
           <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI2_4G/]">
             <style targetArrow="NoDecoration" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:getBandwithLabel()">
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
               </centerLabelStyleDescription>
@@ -87,7 +87,7 @@
           <conditionnalStyles predicateExpression="[type=ConnectorType::WIFI5G/]">
             <style targetArrow="NoDecoration" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:getBandwithLabel()">
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_green']"/>
               </centerLabelStyleDescription>
@@ -96,7 +96,7 @@
           <conditionnalStyles predicateExpression="[type=ConnectorType::OPTICAL/]">
             <style targetArrow="NoDecoration" sizeComputationExpression="2">
               <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
-              <centerLabelStyleDescription showIcon="false" labelExpression="[bandwidth.toString()/]">
+              <centerLabelStyleDescription showIcon="false" labelExpression="service:getBandwithLabel()">
                 <labelFormat>bold</labelFormat>
                 <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='dark_yellow']"/>
               </centerLabelStyleDescription>

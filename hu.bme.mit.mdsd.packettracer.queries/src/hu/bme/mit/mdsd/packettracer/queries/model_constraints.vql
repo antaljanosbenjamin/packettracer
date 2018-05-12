@@ -38,7 +38,7 @@ pattern negativeDelay(networkDevice : NetworkDevice, delay : java
 @Constraint(key = {
 	element
 }, severity = "error", message = "$element$'s bandwidth must be greater than 0!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
-pattern nonPositiveBandwith(element, bandwith : java ^java.lang.Integer) {
+pattern nonPositiveBandwith(element, bandwith : java ^java.lang.Double) {
 	Connector.bandwidth(element, bandwith);
 	check(bandwith <= 0);
 } or {

@@ -565,7 +565,7 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CvPYEDsIEei4YtE6R_Y8bQ" name="bandwidth : EInt" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CvPYEDsIEei4YtE6R_Y8bQ" name="bandwidth : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model/packettracer.ecore#//Connector/bandwidth"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model/packettracer.ecore#//Connector/bandwidth"/>
         <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_CvQmMDsIEei4YtE6R_Y8bQ" labelAlignment="LEFT">
@@ -577,7 +577,7 @@
     <ownedDiagramElements xmi:type="diagram:DNodeList" xmi:id="_CuSV0DsIEei4YtE6R_Y8bQ" name="Connection" tooltipText="" outgoingEdges="_CQaP8FFiEeiZDc3uK3296A _DjHN8FFiEeiZDc3uK3296A" incomingEdges="_CwDQYDsIEei4YtE6R_Y8bQ _QPGYYFFiEeiZDc3uK3296A" width="12" height="10">
       <target xmi:type="ecore:EClass" href="model/packettracer.ecore#//Connection"/>
       <semanticElements xmi:type="ecore:EClass" href="model/packettracer.ecore#//Connection"/>
-      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_x9jsgFFhEeiZDc3uK3296A" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
+      <ownedStyle xmi:type="diagram:FlatContainerStyle" xmi:id="_63yaYFY0EeiHSvLwVkKdDg" borderSize="1" borderSizeComputationExpression="1" backgroundStyle="Liquid" foregroundColor="255,252,216">
         <description xmi:type="style:FlatContainerStyleDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@style"/>
       </ownedStyle>
       <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
@@ -589,10 +589,10 @@
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
       </ownedElements>
-      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CvTpgDsIEei4YtE6R_Y8bQ" name="bandwidth : EInt = 0" tooltipText="">
+      <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_CvTpgDsIEei4YtE6R_Y8bQ" name="bandwidth : EDouble = 0.0" tooltipText="">
         <target xmi:type="ecore:EAttribute" href="model/packettracer.ecore#//Connection/bandwidth"/>
         <semanticElements xmi:type="ecore:EAttribute" href="model/packettracer.ecore#//Connection/bandwidth"/>
-        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_CvU3oDsIEei4YtE6R_Y8bQ" labelAlignment="LEFT">
+        <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_632EwFY0EeiHSvLwVkKdDg" labelAlignment="LEFT">
           <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']/@style"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']/@subNodeMappings[name='EC%20EAttribute']"/>
