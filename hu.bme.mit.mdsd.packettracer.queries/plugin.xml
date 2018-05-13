@@ -8,21 +8,6 @@
   <extension id="extension.derived.hu.bme.mit.mdsd.packettracer.queries.subnetwork" point="org.eclipse.viatra.query.runtime.base.wellbehaving.derived.features">
     <wellbehaving-derived-feature classifier-name="NetworkInterface" feature-name="subnetwork" package-nsUri="http://mit.bme.hu/mdsd/packettracer"/>
   </extension>
-  <extension id="hu.bme.mit.mdsd.packettracer.queries.Common_queries" point="org.eclipse.viatra.query.runtime.queryspecification">
-    <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.mdsd.packettracer.queries.Common_queries" id="hu.bme.mit.mdsd.packettracer.queries.Common_queries">
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.hasIPAddress"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedWithConenction"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connected"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedByConnection"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedByDevice"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedDirectly"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedInterfaces"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedNodes"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedEndpoints"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedEndpointWithInterfaces"/>
-      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.connectedDevicesAndEndpoints"/>
-    </group>
-  </extension>
   <extension id="hu.bme.mit.mdsd.packettracer.queries.Derived_features" point="org.eclipse.viatra.query.runtime.queryspecification">
     <group group="org.eclipse.viatra.query.runtime.extensibility.SingletonExtensionFactory:hu.bme.mit.mdsd.packettracer.queries.Derived_features" id="hu.bme.mit.mdsd.packettracer.queries.Derived_features">
       <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.subnetwork"/>

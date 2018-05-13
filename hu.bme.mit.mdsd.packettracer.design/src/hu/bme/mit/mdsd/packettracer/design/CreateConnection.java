@@ -25,7 +25,6 @@ public class CreateConnection implements IExternalJavaAction {
 		for(EObject selectedItem : selections) {
 			if(!Connector.class.isInstance(selectedItem))
 				return false;
-			Connector connector =(Connector)selectedItem;
 			types.add(((Connector)selectedItem).getType());
 		}
 		

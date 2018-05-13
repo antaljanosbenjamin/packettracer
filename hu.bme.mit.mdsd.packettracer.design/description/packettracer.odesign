@@ -53,7 +53,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Subnetwork" label="Subnetwork" semanticCandidatesExpression="feature:subnetworks" domainClass="Subnetwork">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="[networkPrefix.concat('/').concat(networkPrefixLength.toString())/]" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/subnetwork.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.networkPrefix + '/' + self.networkPrefixLength" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/subnetwork.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -192,14 +192,6 @@
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
-          </ownedTools>
-        </toolSections>
-        <toolSections name="Menus">
-          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="asdasd" candidatesExpression="[diagram.eContents(Endpoint)/]">
-            <element name="element"/>
-            <containerView name="containerView"/>
-            <container name="container"/>
-            <initialOperation/>
           </ownedTools>
         </toolSections>
       </defaultLayer>

@@ -8,14 +8,12 @@ Bundle-Localization: plugin
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
- org.eclipse.sirius,
- org.eclipse.sirius.common.acceleo.aql,
  hu.bme.mit.mdsd.packettracer;bundle-version="0.1.0",
  hu.bme.mit.mdsd.packettracer.editor,
- org.eclipse.sirius.diagram.ui,
  org.eclipse.gmf.runtime.notation.edit,
  hu.bme.mit.mdsd.packettracer.queries;bundle-version="0.0.1",
- org.eclipse.viatra.query.runtime 
+ org.eclipse.viatra.query.runtime;bundle-version="1.7.2",
+ org.eclipse.sirius.diagram.ui;bundle-version="5.0.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-Vendor: %providerName
