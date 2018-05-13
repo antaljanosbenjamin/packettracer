@@ -29,6 +29,12 @@
       <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
     </constraint>
   </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.notReachableNetworkDevice" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.NotReachableNetworkDeviceConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.notReachableNetworkDevice">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
   <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.sameIPAddress" point="org.eclipse.viatra.addon.validation.runtime.constraint">
     <constraint class="hu.bme.mit.mdsd.packettracer.queries.SameIPAddressConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.sameIPAddress">
       <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>

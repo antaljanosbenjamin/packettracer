@@ -65,7 +65,7 @@ Connector returns Connector:
 	'}';
 
 EString returns ecore::EString:
-	STRING | ID;
+	ID;
 
 enum ConnectorType returns ConnectorType:
 				RJ45 = 'RJ45' | WIFI2_4G = 'WIFI2_4G' | WIFI5G = 'WIFI5G' | OPTICAL = 'OPTICAL';
