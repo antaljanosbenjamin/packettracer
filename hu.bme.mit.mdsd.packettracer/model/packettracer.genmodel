@@ -29,6 +29,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Subnetwork/networkPrefix"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Subnetwork/networkPrefixLength"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference packettracer.ecore#//Subnetwork/controller"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute packettracer.ecore#//Subnetwork/name"/>
     </genClasses>
     <genClasses ecoreClass="packettracer.ecore#//NetworkDevice">
       <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference packettracer.ecore#//NetworkDevice/controls"/>
