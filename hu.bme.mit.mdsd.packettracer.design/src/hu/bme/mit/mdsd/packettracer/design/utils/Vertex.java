@@ -1,17 +1,17 @@
 package hu.bme.mit.mdsd.packettracer.design.utils;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Vertex implements Comparable<Vertex> {
 	public final String name;
-	public List<Edge> adjacencies;
+	public Set<Edge> adjacencies;
 	public double minDistance = Double.POSITIVE_INFINITY;
 	public Vertex previous;
 
 	public Vertex(String argName) {
 		name = argName;
-		adjacencies = new ArrayList<Edge>();
+		adjacencies = new HashSet<Edge>();
 	}
 
 	public String toString() {

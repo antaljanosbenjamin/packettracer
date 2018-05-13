@@ -1,6 +1,7 @@
 package hu.bme.mit.mdsd.packettracer.queries
 
 import "http://mit.bme.hu/mdsd/packettracer"
+import java hu.bme.mit.mdsd.packettracer.queries.QueryHelperFunctions
 
 pattern hasIPAddress(element, ipAddress : java ^java.lang.String) {
 	NetworkInterface.address(element, ipAddress);
@@ -64,4 +65,20 @@ pattern connectedDevicesAndEndpoints(n : NetworkDevice, e : Endpoint) {
 	NetworkDevice.networkInterfaces(n, i1);
 	Endpoint.networkInterfaces(e, i2);
 	find connectedInterfaces(i1, i2);
+}
+
+pattern
+connectedDirectlyWithBandwith(n1 : NetworkInterface, n2 : NetworkInterface, bandwidth : java
+^java.lang.Double) {
+	NetworkInterface.connectors(n1, c1);
+	NetworkInterface.connectors(n2, c2);
+	find connectedWithConenction(conn, c1, c2);
+	Connector.bandwidth(c1, b1);
+	Connector.bandwidth(c2, b2);
+	Connection.bandwidth(conn, b3);
+	bandwidth == eval(QueryHelperFunctions.min(b1, b2, b3));
+} or {
+	NetworkDevice.networkInterfaces(device, n1);
+	NetworkDevice.networkInterfaces(device, n2);
+	bandwidth == eval(Double.MAX_VALUE);
 }

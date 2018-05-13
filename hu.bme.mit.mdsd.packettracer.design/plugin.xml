@@ -19,13 +19,19 @@
    <extension
          point="org.eclipse.ui.commands">
       <command
-            defaultHandler="hu.bme.mit.mdsd.packettracer.design.CalculateDelayHandler"
-            id="hu.bme.mit.mdsd.packettracer.design.CalculateDelayHandler"
+            defaultHandler="hu.bme.mit.mdsd.packettracer.design.handlers.CalculateDelayHandler"
+            id="hu.bme.mit.mdsd.packettracer.design.handlers.CalculateDelayHandler"
             name="CalculateDelayHandler">
       </command>
-   </extension>
-   
-   
+   </extension>   
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="hu.bme.mit.mdsd.packettracer.design.handlers.CalculateMaxFlowHandler"
+            id="hu.bme.mit.mdsd.packettracer.design.handlers.CalculateMaxFlowHandler"
+            name="CalculateMaxFlowHandler">
+      </command>
+   </extension>   
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
@@ -35,11 +41,17 @@
                id="mdsd"
                label="MDSD">
             <command
-                  commandId="hu.bme.mit.mdsd.packettracer.design.CalculateDelayHandler"
+                  commandId="hu.bme.mit.mdsd.packettracer.design.handlers.CalculateDelayHandler"
                   label="Calculate delay"
+                  style="push">
+            </command>
+            <command
+                  commandId="hu.bme.mit.mdsd.packettracer.design.handlers.CalculateMaxFlowHandler"
+                  label="Calculate max flow"
                   style="push">
             </command>
          </menu>
       </menuContribution>
    </extension>
+   
 </plugin>

@@ -7,13 +7,13 @@ import hu.bme.mit.mdsd.packettracer.Connection;
  */
 public class Services {
     
-	private static String [] UNITS = {"b/s","Kb/s", "Mb/s", "Gb/s", "Tb/s", "Pb/s"};
+	private static String [] UNITS = {"Kb/s", "Mb/s", "Gb/s", "Tb/s", "Pb/s"};
 	private static double DIVIDER = 1024.0;
     /**
     * See http://help.eclipse.org/neon/index.jsp?topic=%2Forg.eclipse.sirius.doc%2Fdoc%2Findex.html&cp=24 for documentation on how to write service methods.
     */
 	
-	private static String getBandwithWithUnit(double bandwith) {
+	public static String getBandwithWithUnit(Double bandwith) {
 		int unitSelector = 1;
 		while(bandwith >= DIVIDER && unitSelector < UNITS.length) {
 			bandwith /= DIVIDER;
