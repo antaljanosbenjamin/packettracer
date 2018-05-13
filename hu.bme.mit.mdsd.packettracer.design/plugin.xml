@@ -1,31 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-  <extension point="org.eclipse.sirius.componentization">
-    <component class="hu.bme.mit.mdsd.packettracer.design.Activator"
-               id="hu.bme.mit.mdsd.packettracer.design"
-	       name="packettracer">
-    </component>
-  </extension>
-  <extension
-        point="org.eclipse.sirius.externalJavaAction">
-     <javaActions
-           actionClass="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface"
-           id="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface">
-     </javaActions>
-  </extension>
-  <extension
-        point="org.eclipse.sirius.externalJavaAction">
-     <javaActions
-           actionClass="hu.bme.mit.mdsd.packettracer.design.CreateConnector"
-           id="hu.bme.mit.mdsd.packettracer.design.CreateConnector">
-     </javaActions>
-  </extension>
-  <extension
-        point="org.eclipse.sirius.externalJavaAction">
-     <javaActions
-           actionClass="hu.bme.mit.mdsd.packettracer.design.CreateConnection"
-           id="hu.bme.mit.mdsd.packettracer.design.CreateConnection">
-     </javaActions>
-  </extension>
+   <extension point="org.eclipse.sirius.componentization">
+      <component class="hu.bme.mit.mdsd.packettracer.design.Activator" id="hu.bme.mit.mdsd.packettracer.design" name="packettracer" />
+   </extension>
+   <extension point="org.eclipse.sirius.externalJavaAction">
+      <javaActions actionClass="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface" id="hu.bme.mit.mdsd.packettracer.design.CreateNetworkInterface" />
+   </extension>
+   <extension point="org.eclipse.sirius.externalJavaAction">
+      <javaActions actionClass="hu.bme.mit.mdsd.packettracer.design.CreateConnector" id="hu.bme.mit.mdsd.packettracer.design.CreateConnector" />
+   </extension>
+   <extension point="org.eclipse.sirius.externalJavaAction">
+      <javaActions actionClass="hu.bme.mit.mdsd.packettracer.design.CreateConnection" id="hu.bme.mit.mdsd.packettracer.design.CreateConnection" />
+   </extension>
+   <extension point="org.eclipse.sirius.externalJavaAction">
+      <javaActions actionClass="hu.bme.mit.mdsd.packettracer.design.CalculateDelay" id="hu.bme.mit.mdsd.packettracer.design.CalculateDelay" />
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="hu.bme.mit.mdsd.packettracer.design.CalculateDelayHandler"
+            id="hu.bme.mit.mdsd.packettracer.design.CalculateDelayHandler"
+            name="CalculateDelayHandler">
+      </command>
+   </extension>
+   
+   
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.ui.popup.any?after=additions">
+         <menu
+               id="mdsd"
+               label="MDSD">
+            <command
+                  commandId="hu.bme.mit.mdsd.packettracer.design.CalculateDelayHandler"
+                  label="Calculate delay"
+                  style="push">
+            </command>
+         </menu>
+      </menuContribution>
+   </extension>
 </plugin>

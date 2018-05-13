@@ -194,6 +194,14 @@
             </initialOperation>
           </ownedTools>
         </toolSections>
+        <toolSections name="Menus">
+          <ownedTools xsi:type="tool_1:SelectionWizardDescription" name="asdasd" candidatesExpression="[diagram.eContents(Endpoint)/]">
+            <element name="element"/>
+            <containerView name="containerView"/>
+            <container name="container"/>
+            <initialOperation/>
+          </ownedTools>
+        </toolSections>
       </defaultLayer>
     </ownedRepresentations>
     <ownedJavaExtensions qualifiedClassName="hu.bme.mit.mdsd.packettracer.design.Services"/>

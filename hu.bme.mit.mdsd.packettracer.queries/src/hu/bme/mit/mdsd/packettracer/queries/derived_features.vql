@@ -2,14 +2,6 @@ package hu.bme.mit.mdsd.packettracer.queries
 
 import "http://mit.bme.hu/mdsd/packettracer"
 
-pattern connected(connector : Connector, otherConnector : Connector) {
-	Connection.from(connection, connector);
-	Connection.to(connection, otherConnector);
-} or {
-	Connection.from(connection, otherConnector);
-	Connection.to(connection, connector);
-}
-
 @QueryBasedFeature
 pattern subnetwork(interface : NetworkInterface, subnetwork : Subnetwork) {
 	Endpoint.networkInterfaces(_, interface);
