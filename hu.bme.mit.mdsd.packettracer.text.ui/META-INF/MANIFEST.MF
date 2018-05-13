@@ -7,6 +7,7 @@ Bundle-SymbolicName: hu.bme.mit.mdsd.packettracer.text.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: hu.bme.mit.mdsd.packettracer.text,
  hu.bme.mit.mdsd.packettracer.text.ide,
+ hu.bme.mit.mdsd.packettracer,
  org.eclipse.xtext.ui,
  org.eclipse.xtext.ui.shared,
  org.eclipse.xtext.ui.codetemplates.ui,

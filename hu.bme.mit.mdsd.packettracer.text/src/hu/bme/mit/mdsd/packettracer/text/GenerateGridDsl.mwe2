@@ -12,13 +12,7 @@ Workflow {
 			project = StandardProjectConfig {
 				baseName = "hu.bme.mit.mdsd.packettracer.text"
 				rootPath = rootPath
-				runtimeTest = {
-					enabled = true
-				}
 				eclipsePlugin = {
-					enabled = true
-				}
-				eclipsePluginTest = {
 					enabled = true
 				}
 				createEclipseMetaData = true
@@ -32,6 +26,13 @@ Workflow {
 		language = StandardLanguage {
 			name = "hu.bme.mit.mdsd.packettracer.text.GridDsl"
 			fileExtensions = "gd"
+			referencedResource = "platform:/resource/hu.bme.mit.mdsd.packettracer/model/packettracer.genmodel"
+			
+			fragment = ecore2xtext.Ecore2XtextValueConverterServiceFragment2 auto-inject {}
+
+			formatter = {
+				generateStub = true
+			}
 
 			serializer = {
 				generateStub = false

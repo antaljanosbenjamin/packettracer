@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><plugin>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.ipAddressIsOutOfSubnetwork" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.IpAddressIsOutOfSubnetworkConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.ipAddressIsOutOfSubnetwork">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.multipleConnectorIsConnected" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.MultipleConnectorIsConnectedConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.multipleConnectorIsConnected">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.negativeDelay" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.NegativeDelayConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.negativeDelay">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.nonPositiveBandwith" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.NonPositiveBandwithConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.nonPositiveBandwith">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.notReachableEndpoint" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.NotReachableEndpointConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.notReachableEndpoint">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.sameIPAddress" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.SameIPAddressConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.sameIPAddress">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.wrongConnectorType" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.WrongConnectorTypeConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.wrongConnectorType">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.wrongIPAddressFormat" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.WrongIPAddressFormatConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.wrongIPAddressFormat">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
+</plugin>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:diagram="http://www.eclipse.org/sirius/diagram/1.1.0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:viewpoint="http://www.eclipse.org/sirius/1.1.0" xsi:schemaLocation="http://www.eclipse.org/sirius/description/1.1.0 http://www.eclipse.org/sirius/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description http://www.eclipse.org/sirius/diagram/description/style/1.1.0 http://www.eclipse.org/sirius/diagram/1.1.0#//description/style">
-  <viewpoint:DAnalysis xmi:id="_Rv27wDsBEei4YtE6R_Y8bQ" selectedViews="_7vafMDsHEei4YtE6R_Y8bQ _7wVsQDsHEei4YtE6R_Y8bQ _7wyYMDsHEei4YtE6R_Y8bQ _7xW_8DsHEei4YtE6R_Y8bQ" version="12.0.0.201704271200">
+  <viewpoint:DAnalysis xmi:id="_Rv27wDsBEei4YtE6R_Y8bQ" selectedViews="_7vafMDsHEei4YtE6R_Y8bQ _7wVsQDsHEei4YtE6R_Y8bQ _7wyYMDsHEei4YtE6R_Y8bQ _7xW_8DsHEei4YtE6R_Y8bQ" version="12.1.0.201708031200">
     <semanticResources>model/packettracer.ecore</semanticResources>
     <semanticResources>http://www.eclipse.org/emf/2002/Ecore</semanticResources>
     <semanticResources>model/packettracer.genmodel</semanticResources>
     <ownedViews xmi:type="viewpoint:DView" xmi:id="_7vafMDsHEei4YtE6R_Y8bQ">
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']"/>
-      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_A739ADsIEei4YtE6R_Y8bQ" name="packettracer class diagram" repPath="#_A7sW0DsIEei4YtE6R_Y8bQ">
+      <ownedRepresentationDescriptors xmi:type="viewpoint:DRepresentationDescriptor" xmi:id="_A739ADsIEei4YtE6R_Y8bQ" name="packettracer class diagram" repPath="#_bwyeAFa0EeiR5rgxfGNXRA">
         <description xmi:type="description_1:DiagramDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']"/>
         <target xmi:type="ecore:EPackage" href="model/packettracer.ecore#/"/>
       </ownedRepresentationDescriptors>
@@ -21,7 +21,7 @@
       <viewpoint xmi:type="description:Viewpoint" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Generation']"/>
     </ownedViews>
   </viewpoint:DAnalysis>
-  <diagram:DSemanticDiagram xmi:id="_A7sW0DsIEei4YtE6R_Y8bQ" name="packettracer class diagram">
+  <diagram:DSemanticDiagram xmi:id="_A7sW0DsIEei4YtE6R_Y8bQ" name="packettracer class diagram" uid="_bwyeAFa0EeiR5rgxfGNXRA">
     <ownedAnnotationEntries xmi:type="description:AnnotationEntry" xmi:id="_A7sW0TsIEei4YtE6R_Y8bQ" source="DANNOTATION_CUSTOMIZATION_KEY">
       <data xmi:type="diagram:ComputedStyleDescriptionRegistry" xmi:id="_A7sW0jsIEei4YtE6R_Y8bQ">
         <computedStyleDescriptions xmi:type="style:EdgeStyleDescription" xmi:id="_Cvt5MDsIEei4YtE6R_Y8bQ" sourceArrow="FillDiamond" routingStyle="manhattan">
