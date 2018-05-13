@@ -3,3 +3,4 @@ src-gen/
 bin/
 /.classpath
 /.project
+*.xtextbin
