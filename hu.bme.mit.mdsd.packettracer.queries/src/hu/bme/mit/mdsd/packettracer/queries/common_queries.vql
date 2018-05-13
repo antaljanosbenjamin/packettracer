@@ -1,0 +1,67 @@
+package hu.bme.mit.mdsd.packettracer.queries
+
+import "http://mit.bme.hu/mdsd/packettracer"
+
+pattern hasIPAddress(element, ipAddress : java ^java.lang.String) {
+	NetworkInterface.address(element, ipAddress);
+} or {
+	Subnetwork.networkPrefix(element, ipAddress);
+}
+
+pattern
+connectedWithConenction(connection : Connection, connector : Connector, otherConnector : Connector) {
+	Connection.from(connection, connector);
+	Connection.to(connection, otherConnector);
+} or {
+	Connection.from(connection, otherConnector);
+	Connection.to(connection, connector);
+}
+
+pattern connected(connector : Connector, otherConnector : Connector) {
+	find connectedWithConenction(_, connector, otherConnector);
+}
+
+pattern connectedByConnection(i1 : NetworkInterface, i2 : NetworkInterface) {
+	NetworkInterface.connectors(i1, c1);
+	NetworkInterface.connectors(i2, c2);
+	find connected(c1, c2);
+}
+
+pattern connectedByDevice(i1 : NetworkInterface, i2 : NetworkInterface) {
+	NetworkDevice.networkInterfaces(device, i1);
+	NetworkDevice.networkInterfaces(device, i2);
+}
+
+pattern connectedDirectly(i1 : NetworkInterface, i2 : NetworkInterface) {
+	find connectedByConnection(i1, i2);
+} or {
+	find connectedByDevice(i1, i2);
+}
+
+pattern connectedInterfaces(i1 : NetworkInterface, i2 : NetworkInterface) {
+	find connectedDirectly +(i1, i2);
+}
+
+pattern connectedNodes(n1 : NetworkNode, n2 : NetworkNode) {
+	NetworkNode.networkInterfaces(n1, i1);
+	NetworkNode.networkInterfaces(n2, i2);
+	n1 != n2;
+	find connectedDirectly +(i1, i2);
+}
+
+pattern connectedEndpoints(e1 : Endpoint, e2 : Endpoint) {
+	find connectedNodes(e1, e2);
+}
+
+pattern
+connectedEndpointWithInterfaces(e1 : Endpoint, i1 : NetworkInterface, e2 : Endpoint, i2 : NetworkInterface) {
+	Endpoint.networkInterfaces(e1, i1);
+	Endpoint.networkInterfaces(e2, i2);
+	find connectedByConnection(i1, i2);
+}
+
+pattern connectedDevicesAndEndpoints(n : NetworkDevice, e : Endpoint) {
+	NetworkDevice.networkInterfaces(n, i1);
+	Endpoint.networkInterfaces(e, i2);
+	find connectedInterfaces(i1, i2);
+}

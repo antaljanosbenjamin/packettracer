@@ -3,41 +3,6 @@ package hu.bme.mit.mdsd.packettracer.queries
 import "http://mit.bme.hu/mdsd/packettracer"
 import java hu.bme.mit.mdsd.packettracer.queries.ErrorFunctions;
 
-pattern hasIPAddress(element, ipAddress : java ^java.lang.String) {
-	NetworkInterface.address(element, ipAddress);
-} or {
-	Subnetwork.networkPrefix(element, ipAddress);
-}
-
-pattern
-connectedWithConenction(connection : Connection, connector : Connector, otherConnector : Connector) {
-	Connection.from(connection, connector);
-	Connection.to(connection, otherConnector);
-} or {
-	Connection.from(connection, otherConnector);
-	Connection.to(connection, connector);
-}
-
-pattern connectedDirectly(i1 : NetworkInterface, i2 : NetworkInterface){
-	NetworkInterface.connectors(i1, c1);
-	NetworkInterface.connectors(i2, c2);
-	find connected(c1, c2);
-} or {
-	NetworkDevice.networkInterfaces(device, i1);
-	NetworkDevice.networkInterfaces(device, i2);
-}
-
-pattern connectedInterfaces(i1 : NetworkInterface, i2 : NetworkInterface){
-	find connectedDirectly+(i1, i2);
-}
-
-pattern connectedEndpoints(e1: Endpoint, e2: Endpoint){
-	Endpoint.networkInterfaces(e1,i1);
-	Endpoint.networkInterfaces(e2, i2);
-	e1 != e2;
-	find connectedDirectly+(i1, i2);
-}
-
 @Constraint(key = {
 	element
 }, severity = "error", message = "Invalid IP address: $ipAddress$.", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
@@ -119,9 +84,15 @@ ipAddressIsOutOfSubnetwork(networkInterface : NetworkInterface, subnetwork : Sub
 	endpoint
 }, severity = "error", message = "The $endpoint$ doesn't connected to any other endpoint!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
 pattern notReachableEndpoint(endpoint: Endpoint){
-	Endpoint(endpoint);
 	neg find connectedEndpoints(endpoint, _);
 }
 
+@Constraint(key = {
+	device
+}, severity = "error", message = "The $device$ doesn't connected to at least endpoints!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
+pattern notReachableNetworkDevice(device :NetworkDevice){
+	reachedEndpoints == count find connectedDevicesAndEndpoints(device, _);
+	check(reachedEndpoints < 2);
+}
 
 
