@@ -18,7 +18,7 @@ NetworkDevice returns NetworkDevice:
 	'NetworkDevice'
 	'{'
 		('delay' delay=EInt)?
-		('controls' controls=[Subnetwork|EString])?
+		('controls' controls=[Subnetwork])?
 		'networkInterfaces' '{' networkInterfaces+=NetworkInterface ( "," networkInterfaces+=NetworkInterface)* '}' 
 	'}';
 
@@ -27,13 +27,13 @@ Connection returns Connection:
 	'{'
 		('type' type=ConnectorType)?
 		('bandwidth' bandwidth=EDouble)?
-		'from' from=[Connector|EString]
-		'to' to=[Connector|EString]
+		'from' from=[Connector]
+		'to' to=[Connector]
 	'}';
 
 Endpoint returns Endpoint:
 	'Endpoint'
-	name=EString
+	name=ID
 	'{'
 		'networkInterfaces' '{' networkInterfaces+=NetworkInterface ( "," networkInterfaces+=NetworkInterface)* '}' 
 	'}';
@@ -41,7 +41,7 @@ Endpoint returns Endpoint:
 Subnetwork returns Subnetwork:
 	{Subnetwork}
 	'Subnetwork'
-	name=EString 
+	name=ID 
 	'{'
 		('networkPrefix' networkPrefix=EString)?
 		('networkPrefixLength' networkPrefixLength=EInt)?
@@ -60,7 +60,7 @@ EInt returns ecore::EInt:
 Connector returns Connector:
 	{Connector}
 	'Connector'
-	name=EString 
+	name=ID 
 	'{'
 		('type' type=ConnectorType)?
 		('bandwidth' bandwidth=EDouble)?

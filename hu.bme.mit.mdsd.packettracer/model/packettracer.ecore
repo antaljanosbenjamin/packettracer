@@ -35,7 +35,7 @@
         <details key="patternFQN" value="hu.bme.mit.mdsd.packettracer.queries.controller"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NetworkDevice" eSuperTypes="#//NetworkNode">
     <eStructuralFeatures xsi:type="ecore:EReference" name="controls" eType="#//Subnetwork"/>
@@ -58,7 +58,7 @@
         <details key="patternFQN" value="hu.bme.mit.mdsd.packettracer.queries.connection"/>
       </eAnnotations>
     </eStructuralFeatures>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Connection">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//ConnectorType"
