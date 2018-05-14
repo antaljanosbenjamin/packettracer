@@ -96,4 +96,16 @@ pattern notReachableNetworkDevice(device :NetworkDevice){
 	check(reachedEndpoints < 2);
 }
 
+@Constraint(key = {
+	conn
+}, severity = "warning", message = "The $conn$ has lower bandwidth than the two connected connectors!", targetEditorId = "org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID", targetEditorId = "hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID")
+pattern nonMaximalConnection(conn: Connection){
+	find connectedWithConenction(conn, c1, c2);
+	Connection.bandwidth(conn, b3);
+	Connector.bandwidth(c1, b1);
+	Connector.bandwidth(c2, b2);
+	check(b1 > b3);
+	check(b2 > b3);
+}
+
 

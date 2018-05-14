@@ -33,7 +33,8 @@ public class CalculateDelayHandler extends AbstractHandler {
 			try {
 				Double minDelay = calculateShortestPath(endpoints.get(0), endpoints.get(1));
 				MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Result",
-						"Calculated delay is " + minDelay.intValue() + "ms!");
+						"Calculated delay  between " + endpoints.get(0).getName() + " and " + endpoints.get(1).getName()
+								+ " is " + minDelay.intValue() + "ms!");
 			} catch (ViatraQueryException e) {
 				e.printStackTrace();
 			}

@@ -27,6 +27,7 @@
       <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.ipAddressIsOutOfSubnetwork"/>
       <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.notReachableEndpoint"/>
       <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.notReachableNetworkDevice"/>
+      <query-specification fqn="hu.bme.mit.mdsd.packettracer.queries.nonMaximalConnection"/>
     </group>
   </extension>
 </plugin>

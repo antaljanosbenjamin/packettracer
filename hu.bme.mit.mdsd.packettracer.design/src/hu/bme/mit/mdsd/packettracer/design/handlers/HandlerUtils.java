@@ -69,6 +69,6 @@ public class HandlerUtils {
 	
 	private static void showError(Shell shell) {
 		MessageDialog.openError(shell, "Wrong number of selected items!",
-				"You must select two NetworkNode to compute the network delay or max bandwith between them!");
+				"You must select two Endpoints to compute the network delay or max bandwith between them!");
 	}
 }

@@ -34,7 +34,8 @@ public class CalculateMaxFlowHandler extends AbstractHandler {
 			try {
 				Double maxFlow = calculateMaxFlow(endpoints.get(0), endpoints.get(1));
 				MessageDialog.openInformation(HandlerUtil.getActiveWorkbenchWindow(event).getShell(), "Result",
-						"Calculated max bandwith is " + Services.getBandwithWithUnit(maxFlow) + "!");
+						"Calculated max bandwith between " + endpoints.get(0).getName() + " and "
+								+ endpoints.get(1).getName() + " is " + Services.getBandwithWithUnit(maxFlow) + "!");
 			} catch (ViatraQueryException e) {
 				e.printStackTrace();
 			}
@@ -65,12 +66,12 @@ public class CalculateMaxFlowHandler extends AbstractHandler {
 		for (Endpoint device : diagram.getEndpoints()) {
 			i2v.putAll(getVertexesFromNetworkNode(device));
 		}
-		
+
 		Graph graph = new Graph();
 		graph.getVertexes().addAll(i2v.values());
-		
+
 		ConnectedDirectlyWithBandwithMatcher matcher = ConnectedDirectlyWithBandwithMatcher.on(engine);
-		
+
 		matcher.forEachMatch(new ConnectedDirectlyWithBandwithProcessor() {
 
 			@Override
@@ -79,20 +80,20 @@ public class CalculateMaxFlowHandler extends AbstractHandler {
 			}
 		});
 
-		Vertex sourceVertex = new Vertex("Source_"+ source.getName());
-		Vertex targetVertex = new Vertex("Target_"+ target.getName());
+		Vertex sourceVertex = new Vertex("Source_" + source.getName());
+		Vertex targetVertex = new Vertex("Target_" + target.getName());
 		graph.addVertex(sourceVertex);
 		graph.addVertex(targetVertex);
-		
-		for(NetworkInterface eInterface : source.getNetworkInterfaces()) {
+
+		for (NetworkInterface eInterface : source.getNetworkInterfaces()) {
 			graph.addBidirectionalEdge(sourceVertex, i2v.get(eInterface), Double.MAX_VALUE);
 		}
-		for(NetworkInterface eInterface : target.getNetworkInterfaces()) {
+		for (NetworkInterface eInterface : target.getNetworkInterfaces()) {
 			graph.addBidirectionalEdge(targetVertex, i2v.get(eInterface), Double.MAX_VALUE);
 		}
-		
+
 		MaxFlow maxFlow = new MaxFlow();
-		
+
 		return maxFlow.calculateMaxFlow(graph, sourceVertex, targetVertex);
 	}
 

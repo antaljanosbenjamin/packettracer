@@ -21,13 +21,6 @@ pattern controller(subnetwork : Subnetwork, networkDevice : NetworkDevice) {
 	NetworkDevice.controls(networkDevice, subnetwork);
 }
 
-/* @QueryBasedFeature
-pattern generatedName(networkDevice : NetworkDevice, name : java ^java.lang.String) {
-	NetworkDevice.controls(networkDevice, subnetwork);
-	Subnetwork.networkPrefix(subnetwork, networkPrefix);
-	Subnetwork.networkPrefixLength(subnetwork, networkPrefixLength);
-	name == eval((networkPrefix + "/" + networkPrefixLength))
-}*/
 @QueryBasedFeature
 pattern connection(connector : Connector, connection : Connection) {
 	Connection.from(connection, connector);

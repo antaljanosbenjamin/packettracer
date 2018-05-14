@@ -44,8 +44,15 @@
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             </style>
           </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[oclIsKindOf(NetworkDevice) and oclAsType(NetworkDevice).controls.oclIsUndefined()/]">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="2" showIcon="false" labelExpression="'without subnetwork'" labelAlignment="LEFT" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" roundedCorner="true" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/router.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <labelFormat>bold</labelFormat>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </conditionnalStyles>
           <conditionnalStyles predicateExpression="[oclIsKindOf(NetworkDevice)/]">
-            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="2" showIcon="false" labelExpression="[oclAsType(NetworkDevice).controls.networkPrefix.concat('/').concat(oclAsType(NetworkDevice).controls.networkPrefixLength.toString())/]" labelAlignment="LEFT" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" roundedCorner="true" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/router.png">
+            <style xsi:type="style:WorkspaceImageDescription" borderSizeComputationExpression="2" showIcon="false" labelExpression="[oclAsType(NetworkDevice).controls.name.concat('\n').concat(oclAsType(NetworkDevice).controls.networkPrefix).concat('/').concat(oclAsType(NetworkDevice).controls.networkPrefixLength.toString())/]" labelAlignment="LEFT" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" roundedCorner="true" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/router.png">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelFormat>bold</labelFormat>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -53,7 +60,7 @@
           </conditionnalStyles>
         </nodeMappings>
         <nodeMappings name="Subnetwork" label="Subnetwork" semanticCandidatesExpression="feature:subnetworks" domainClass="Subnetwork">
-          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.networkPrefix + '/' + self.networkPrefixLength" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/subnetwork.png">
+          <style xsi:type="style:WorkspaceImageDescription" showIcon="false" labelExpression="aql:self.name + '\n' + self.networkPrefix + '/' + self.networkPrefixLength" sizeComputationExpression="16" labelPosition="node" resizeKind="NSEW" workspacePath="/hu.bme.mit.mdsd.packettracer.design/resources/node_icons/subnetwork.png">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelFormat>bold</labelFormat>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
@@ -166,7 +173,7 @@
           </ownedTools>
         </toolSections>
         <toolSections name="Add Connection">
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connect devices" precondition="[preTarget.connection.oclIsUndefined() and preSource.type=preTarget.type/]" edgeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Connection']" connectionStartPrecondition="[preSource.connection.oclIsUndefined()/]">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Connect devices" precondition="[preTarget.connection.oclIsUndefined() and preSource.type=preTarget.type/]" edgeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Connection']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/filler.png" connectionStartPrecondition="[preSource.connection.oclIsUndefined()/]">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>
@@ -178,7 +185,7 @@
               </firstModelOperations>
             </initialOperation>
           </ownedTools>
-          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign subnetwork" precondition="[preTarget.controller.oclIsUndefined()/]" edgeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Controls']" connectionStartPrecondition="[preSource.oclIsKindOf(NetworkDevice) and preSource.oclAsType(NetworkDevice).controls.oclIsUndefined()/]">
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Assign subnetwork" precondition="[preTarget.controller.oclIsUndefined()/]" edgeMappings="//@ownedViewpoints[name='PacketTracerDiagramSpecification']/@ownedRepresentations[name='Packet%20Tracer%20Diagram%20Description']/@defaultLayer/@edgeMappings[name='Controls']" iconPath="/hu.bme.mit.mdsd.packettracer.design/resources/section_icons/filler.png" connectionStartPrecondition="[preSource.oclIsKindOf(NetworkDevice) and preSource.oclAsType(NetworkDevice).controls.oclIsUndefined()/]">
             <sourceVariable name="source"/>
             <targetVariable name="target"/>
             <sourceViewVariable name="sourceView"/>

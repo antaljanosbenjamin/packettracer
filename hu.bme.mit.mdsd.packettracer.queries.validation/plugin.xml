@@ -17,6 +17,12 @@
       <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
     </constraint>
   </extension>
+  <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.nonMaximalConnection" point="org.eclipse.viatra.addon.validation.runtime.constraint">
+    <constraint class="hu.bme.mit.mdsd.packettracer.queries.NonMaximalConnectionConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.nonMaximalConnection">
+      <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
+      <enabledForEditor editorId="hu.bme.mit.mdsd.packettracer.presentation.PackettracerEditorID"/>
+    </constraint>
+  </extension>
   <extension id="validation.constraint.hu.bme.mit.mdsd.packettracer.queries.nonPositiveBandwith" point="org.eclipse.viatra.addon.validation.runtime.constraint">
     <constraint class="hu.bme.mit.mdsd.packettracer.queries.NonPositiveBandwithConstraint0" name="hu.bme.mit.mdsd.packettracer.queries.nonPositiveBandwith">
       <enabledForEditor editorId="org.eclipse.sirius.diagram.ui.part.SiriusDiagramEditorID"/>
