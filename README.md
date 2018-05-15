@@ -1,3 +1,7 @@
+This is a homework for Model-based Systems Design course. The repository contains a some plugins for Eclipse to create and visualize computer networks. It also contains functionality to compute the minimum network delay and maximum bandwith between to endpoints. Minimal delay determinted with Dijsktra's algorithm, and maximum bandwith calculated with the Ford-Fulkerson algorithm. My homework partner was [Márton](https://github.com/pukkancs007 "Márton").
+
+
+
 # Plastic-Turtle-Militia-MDSD-2018
 
 ## Számítógép hálózat modellező
